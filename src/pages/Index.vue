@@ -52,7 +52,19 @@
       </div>
 
     </template>
+    <q-dialog v-model="showDialog">
+        <q-card>
+          <q-card-section class="row items-center q-pb-none">
+            <div class="text-h6">Error</div>
+            <q-space />
+            <q-btn icon="close" flat round dense v-close-popup />
+          </q-card-section>
 
+          <q-card-section>
+            Please enter a valid city name
+          </q-card-section>
+        </q-card>
+      </q-dialog>
 
 
     <div class="col skyline">
@@ -72,6 +84,7 @@ export default {
       lon: null,
       apikey: 'f5d9b81ed866181c8d18d50301c16eae',
       baseUrl: 'https://api.openweathermap.org/data/2.5/weather',
+      showDialog: false,
     }
   },
   computed: {
@@ -104,13 +117,19 @@ export default {
         });
      },
      getWeatheBySearch() {
-      this.$q.loading.show();
-       const url=`${this.baseUrl}?q=${this.search}&appid=${this.apikey}&units=metric`;
-        this.$axios(url).then((response) => {
-          console.log(response);
-          this.weatherData = response.data;
-          this.$q.loading.hide();
-        });
+      if(this.search) { 
+        this.$q.loading.show();
+        const url=`${this.baseUrl}?q=${this.search}&appid=${this.apikey}&units=metric`;
+          this.$axios(url).then((response) => {
+            console.log(response);
+            this.weatherData = response.data;
+            this.$q.loading.hide();
+          }, error=> {
+            this.$q.loading.hide();
+            this.showDialog = true;
+            
+          });
+      }
      }
   },
   
