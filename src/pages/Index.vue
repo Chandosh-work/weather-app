@@ -5,7 +5,8 @@
         v-model="search"
         placeholder="Search"
         dark
-        borderless
+        ref="searchBar"
+        outlined 
         @keyup.enter="getWeatheBySearch"
         >
         <template v-slot:before>
@@ -129,6 +130,8 @@ export default {
             this.showDialog = true;
             
           });
+      } else {
+        this.$refs.searchBar.focus();
       }
      }
   },
