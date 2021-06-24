@@ -1,10 +1,19 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import * as VueGoogleMaps from 'vue2-google-maps'
+
 import routes from './routes'
 
 Vue.use(VueRouter)
 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: process.env.GOOGLE_MAPS_API_KEY,
+    libraries: 'places',
+    // autobindAllEvents: true,
+  }
+});
 /*
  * If not building with SSR mode, you can
  * directly export the Router instantiation;

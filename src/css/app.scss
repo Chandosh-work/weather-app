@@ -1,1 +1,16 @@
 // app global css in SCSS form
+.info-card {
+    width: 100%;
+    max-width: 250px;
+    min-width: 200px;
+}
+.degree {
+    font-size: 13px; 
+    top: -14px;
+}
+.weather-icon {
+    height: 80px;
+    width: 80px;
+    position: relative;
+    margin: 0 auto;
+}
