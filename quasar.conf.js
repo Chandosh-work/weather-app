@@ -45,8 +45,8 @@ module.exports = function (/* ctx */) {
     build: {
       vueRouterMode: 'hash', // available values: 'hash', 'history'
       env: {
-        WEATHER_API_KEY : 'f5d9b81ed866181c8d18d50301c16eae',
-        GOOGLE_MAPS_API_KEY : 'AIzaSyAVXAMKnE7_iMz-S76m2RA1zyTd8l0mbIU'
+        WEATHER_API_KEY : 'xxxx',
+        GOOGLE_MAPS_API_KEY : 'xxxx'
       },
       // transpile: false,
 

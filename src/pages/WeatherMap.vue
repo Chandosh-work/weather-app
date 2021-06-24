@@ -7,19 +7,21 @@
         </q-btn>
         <div color="white" class="row justify-center text-white text-h4  q-my-sm"> Weather Map </div>
       </div>
-      <google-map-npm />
-      <!-- <google-map/> -->
+      <GoogleMapNpm/>
+      <!-- <GoogleMap/> -->
      
    </q-page>
 </template>
 
 <script>
-
+import GoogleMapNpm from 'components/GoogleMapNpm.vue';
+import GoogleMap from 'components/GoogleMap.vue';
 export default {
+
   
 components: {
-    'google-map-npm': require('components/GoogleMapNpm.vue').default,
-    'google-map': require('components/GoogleMap.vue').default
+    GoogleMapNpm,
+    GoogleMap
   },
   data () {
     return {}

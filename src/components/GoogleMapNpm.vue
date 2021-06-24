@@ -31,6 +31,25 @@
 
     </gmap-map>
 
+  
+  <!-- <div v-if="markers[0]" id="InfoContent" class="hideTemplate">
+    <q-card class="info-card">
+      <q-card-section>
+        <div class="text-h6">Weather Details</div>
+      </q-card-section>
+      <q-separator>
+      </q-separator>
+      <q-card-section class="q-mt-sm flex column justify-center text-center">
+        <div class="text-h6">{{markers[0].name}}</div>
+        <div class="text-h5 text-weight-bold relative-position q-mt-sm">
+        <span>{{markers[0].temperature}}</span>
+        <span class="degree relative-position">&deg;C</span>
+        </div>
+        <img class="weather-icon" :src="markers[0].icon" alt="Icon">
+        <div clas="text-h6">{{markers[0].skyState}}</div>
+      </q-card-section>
+    </q-card>
+  </div> -->
 
   </div>
 </template>
@@ -148,7 +167,6 @@ export default {
                                 <div clas="text-h6">${marker.skyState}</div>
                           </q-card-section>
                         </q-card>`
-
         return content;
 
       },
@@ -158,17 +176,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .info-card {
+ .info-card {
     width: 100%;
     max-width: 250px;
     min-width: 200px;
-  }
-  .degree {
-    font-size: 12px; 
-    top: -44px;
-  }
-  .weather-icon {
-    height: 50px;
-    width: 50px;
-  }
+}
+.degree {
+    font-size: 13px; 
+    top: -14px;
+}
+.weather-icon {
+    height: 80px;
+    width: 80px;
+    position: relative;
+    margin: 0 auto;
+}
+// .hideTemplate {
+//   display: none;
+// }
 </style>
