@@ -1,7 +1,8 @@
 <template>
   <q-page class="flex column" :class="bgClass">
-    <div class="col q-pt-lg q-px-md">
+    <div class="col q-pt-lg">
       <q-input
+        class="q-px-md"
         v-model="search"
         placeholder="Search"
         dark
@@ -19,7 +20,14 @@
           <q-btn round dense flat icon="search"   @click="getWeatheBySearch" />
         </template>
       </q-input>
+
+      <q-btn class="row justify-center q-mt-md" flat to="/map" color="white">
+          <q-icon left size="3em" name="map" />
+          <div>Go To Map</div>
+      </q-btn>
     </div>
+ 
+
     <template v-if="weatherData">
 
       <div class="col text-white text-center">
@@ -83,11 +91,13 @@ export default {
       weatherData: null,
       lat: null,
       lon: null,
-      apikey: 'f5d9b81ed866181c8d18d50301c16eae',
+      apikey: process.env.WEATHER_API_KEY,
       baseUrl: 'https://api.openweathermap.org/data/2.5/weather',
       showDialog: false,
     }
   },
+
+
   computed: {
     bgClass() {
       if(this.weatherData) {
